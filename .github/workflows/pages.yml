@@ -32,7 +32,7 @@ jobs:
           julia --project=. -e "using Pkg; Pkg.test()"
           julia --project=. scripts/smoke_check.jl
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deployment
