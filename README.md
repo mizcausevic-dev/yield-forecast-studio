@@ -20,15 +20,15 @@ Julia operator surface for publishing, lifecycle, and commerce yield forecasting
 ## Local development
 
 ```powershell
-& 'C:\Users\chaus\AppData\Local\Programs\Julia-1.12.6\bin\julia.exe' --project=. scripts/run_demo.jl
-& 'C:\Users\chaus\AppData\Local\Programs\Julia-1.12.6\bin\julia.exe' --project=. scripts/generate_site.jl
+julia --project=. scripts/run_demo.jl
+julia --project=. scripts/generate_site.jl
 ```
 
 ## Validation
 
 ```powershell
-& 'C:\Users\chaus\AppData\Local\Programs\Julia-1.12.6\bin\julia.exe' --project=. -e "using Pkg; Pkg.test()"
-& 'C:\Users\chaus\AppData\Local\Programs\Julia-1.12.6\bin\julia.exe' --project=. scripts/smoke_check.jl
+julia --project=. -e "using Pkg; Pkg.test()"
+julia --project=. scripts/smoke_check.jl
 ```
 
 ## Why this matters
