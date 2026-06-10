@@ -267,6 +267,17 @@ end
 
 status_badge(status::String) = "<span class=\"status $(status == "green" ? "green" : status == "yellow" ? "warn" : "bad")\">$(uppercase(status))</span>"
 
+function site_footer(context::String="yield forecast proof surface")
+    return """
+    <footer>
+      <span>$(escape_html(context))</span>
+      <span><a href="https://yield.kineticgain.com/">yield.kineticgain.com</a></span>
+      <span><a href="https://portfolio.kineticgain.com/">Portfolio</a> · <a href="https://suite.kineticgain.com/">Suite</a> · <a href="https://github.com/mizcausevic-dev/yield-forecast-studio">Repo</a></span>
+      <span><a href="https://www.linkedin.com/in/mirzacausevic/">LinkedIn</a> · <a href="https://kineticgain.com/">Kinetic Gain</a></span>
+    </footer>
+    """
+end
+
 function overview_content(result::Dict)
     lane_rows = join([
         """
@@ -366,16 +377,54 @@ function overview_content(result::Dict)
       </div>
     </section>
 
+    <section class="section">
+      <div class="sh"><h2>Product depth</h2><div class="note">SaaS value architecture and GTM posture</div></div>
+      <div class="cards">
+        <div class="card">
+          <div class="eyebrow">Executive buyer value</div>
+          <h3>Yield pressure becomes a revenue decision.</h3>
+          <p>Media, lifecycle, commerce, and revenue operations leaders can see where scarce inventory should go before underfilled or mispriced slots turn into revenue drag.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Technical proof</div>
+          <h3>One Julia model feeds every route.</h3>
+          <p>The same Julia allocation model creates the decision, route pages, dashboard JSON, sitemap, README proof assets, and smoke-testable static site.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Commercial motion</div>
+          <h3>From optimizer to monetization packet.</h3>
+          <p>This can ladder into yield planning templates, inventory review boards, promotion-mix analysis, campaign recovery packets, and embedded monetization operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sh"><h2>What these repos have in common</h2><div class="note">Kinetic Gain operating pattern</div></div>
+      <div class="cards">
+        <div class="card">
+          <div class="eyebrow">Risk</div>
+          <h3>Make drift explicit.</h3>
+          <p>Each repo turns a fuzzy operating problem into a named risk surface with score, status, owner-readable context, and next-action language.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Proof</div>
+          <h3>Keep evidence attached.</h3>
+          <p>The product story, synthetic data contract, generated routes, sitemap, screenshots, and validation path ship together so the claim can be inspected.</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">Action</div>
+          <h3>Route the next move.</h3>
+          <p>The output is not another generic dashboard. It is an operator-usable control plane for what to recover, escalate, package, or simplify next.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="quote">
       <div class="lbl">why this matters</div>
       <div class="q">Kinetic Gain Embedded tie-back: this repo proves the portfolio can carry forecasting and yield logic in Julia while still publishing the same buyer-readable operator surface language for media and commerce teams.</div>
     </section>
 
-    <footer>
-      <span>yield-forecast-studio · Julia 1.12</span>
-      <span><a href="/docs/">Docs</a> · <a href="/verification/">Verification</a></span>
-      <span><a href="https://github.com/mizcausevic-dev/">GitHub</a> · <a href="https://www.linkedin.com/in/mirzacausevic/">LinkedIn</a> · <a href="https://kineticgain.com/">Kinetic Gain</a></span>
-    </footer>
+    $(site_footer("yield-forecast-studio · Julia 1.12"))
     """
 end
 
@@ -393,6 +442,7 @@ function generic_content(title::String, note::String, body::Vector{String}; back
       <ul style="color:var(--muted);line-height:1.8">$(bullet_html)</ul>
       <p><a href="$(back)">Return to the overview</a></p>
     </section>
+    $(site_footer(lowercase(title) * " · generated proof route"))
     """
 end
 
